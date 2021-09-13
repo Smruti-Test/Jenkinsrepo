@@ -12,11 +12,11 @@ pipeline {
             }
         }
         stage('Deploy for development') {
-           when 'prod'
-           
+            when {
+                branch 'prod'  
+            }
             steps {
-              
-              echo 'Deploy for development ...'
+              echo 'Deploy for prod ...'
             }
         }
     }
