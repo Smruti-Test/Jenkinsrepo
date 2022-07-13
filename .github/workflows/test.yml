@@ -16,11 +16,23 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - name: Run a one-line script
-        run: echo Hello, world2!
+      - name: Delayed Check
+        # You may pin to the exact commit or the version.
+        # uses: angela-mylo/wait-for-response@53edca33a442d71bc656702593f28d30b05a86a1
+        uses: angela-mylo/wait-for-response@1.0.2
+        with:
+          # URL to poll
+          url: http://localhost/8080
+          # Response code to wait for
+          responseCode: 200
+          # Timeout before giving up in ms
+          timeout: 30000
+          # Interval between polling in ms
+          interval: 200
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
         run: echo Hello, world3!
+ 
